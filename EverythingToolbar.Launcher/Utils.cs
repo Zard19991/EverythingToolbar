@@ -2,9 +2,9 @@
 using System.Diagnostics;
 using System.IO;
 using EverythingToolbar.Helpers;
-using EverythingToolbar.Properties;
 using IWshRuntimeLibrary;
 using Microsoft.Win32;
+using NLog;
 using Shell32;
 using File = System.IO.File;
 
@@ -12,6 +12,8 @@ namespace EverythingToolbar.Launcher
 {
     internal class Utils
     {
+        private static readonly ILogger Logger = ToolbarLogger.GetLogger<Utils>();
+
         public static string GetTaskbarShortcutPath()
         {
             const string relativeTaskBarPath = @"Microsoft\Internet Explorer\Quick Launch\User Pinned\TaskBar";
@@ -40,7 +42,7 @@ namespace EverythingToolbar.Launcher
                 }
                 catch (Exception e)
                 {
-                    ToolbarLogger.GetLogger<Utils>().Error(e, "Failed to scan taskbar icon links. Using default path...");
+                    Logger.Error(e, "Failed to scan taskbar icon links. Using default path...");
                 }
             }
 
@@ -49,7 +51,7 @@ namespace EverythingToolbar.Launcher
 
         public static bool IsTaskbarCenterAligned()
         {
-            if (Settings.Default.isForceCenterAlignment)
+            if (ToolbarSettings.User.IsForceCenterAlignment)
                 return true;
 
             if (Helpers.Utils.GetWindowsVersion() < Helpers.Utils.WindowsVersion.Windows11)
@@ -58,7 +60,6 @@ namespace EverythingToolbar.Launcher
             using (var key = Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced"))
             {
                 var taskbarAlignment = key?.GetValue("TaskbarAl");
-                ToolbarLogger.GetLogger<Utils>().Debug($"taskbarAlignment: {taskbarAlignment}");
                 var leftAligned = taskbarAlignment != null && (int)taskbarAlignment == 0;
                 return !leftAligned;
             }
@@ -75,9 +76,16 @@ namespace EverythingToolbar.Launcher
 
         public static void SetWindowsSearchEnabledState(bool enabled)
         {
-            using (var key = Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Search", true))
+            using (var key = Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Search", RegistryKeyPermissionCheck.ReadWriteSubTree))
             {
-                key?.SetValue("SearchboxTaskbarMode", enabled ? 1 : 0);
+                try
+                {
+                    key?.SetValue("SearchboxTaskbarMode", enabled ? 1 : 0);
+                }
+                catch (Exception e)
+                {
+                    Logger.Error(e, "Failed to set taskbar search icon mode.");
+                }
             }
         }
 
@@ -91,12 +99,19 @@ namespace EverythingToolbar.Launcher
 
         public static void SetAutostartState(bool enabled)
         {
-            using (var key = Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Run", true))
+            using (var key = Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Run", RegistryKeyPermissionCheck.ReadWriteSubTree))
             {
-                if (enabled)
-                    key?.SetValue("EverythingToolbar", "\"" + Process.GetCurrentProcess().MainModule.FileName + "\"");
-                else
-                    key?.DeleteValue("EverythingToolbar", false);
+                try
+                {
+                    if (enabled)
+                        key?.SetValue("EverythingToolbar", "\"" + Process.GetCurrentProcess().MainModule.FileName + "\"");
+                    else
+                        key?.DeleteValue("EverythingToolbar", false);
+                }
+                catch (Exception e)
+                {
+                    Logger.Error(e, "Failed to set autostart state.");
+                }
             }
         }
 

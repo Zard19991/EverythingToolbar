@@ -5,15 +5,17 @@
         xmlns:b="clr-namespace:EverythingToolbar.Behaviors;assembly=EverythingToolbar"
         xmlns:properties="clr-namespace:EverythingToolbar.Launcher.Properties"
         WindowStartupLocation="CenterScreen"
-        Height="410"
+        Height="450"
         Background="Transparent"
         WindowStyle="ToolWindow"
         Title="{x:Static properties:Resources.SetupAssistantTitle}"
         Closed="OnClosed"
+        Closing="OnClosing"
         Foreground="White"
         Width="575">
 
     <i:Interaction.Behaviors>
+        <b:FlowDirectionAwareness />
         <b:MicaWindow />
     </i:Interaction.Behaviors>
 
@@ -203,6 +205,25 @@
                                       Unchecked="AutostartChanged" />
                         </StackPanel>
                     </Border>
+                    <TextBlock FontSize="14"
+                               Text="{x:Static properties:Resources.SetupAssistantFifthStepTitle}"
+                               FontWeight="Medium"
+                               Margin="0, 20, 0, 10" />
+                    <Border BorderBrush="#771D1D1D"
+                            BorderThickness="1"
+                            Background="#0cffffff"
+                            CornerRadius="4"
+                            Padding="10">
+                        <StackPanel>
+                            <TextBlock TextWrapping="Wrap"
+                                       Text="{x:Static properties:Resources.SetupAssistantFifthStepText}" />
+                            <CheckBox x:Name="TrayIconCheckBox"
+                                      Foreground="White"
+                                      Content="{x:Static properties:Resources.CheckboxEnable}"
+                                      Checked="TrayIconChanged"
+                                      Unchecked="TrayIconChanged" />
+                        </StackPanel>
+                    </Border>
                 </StackPanel>
             </TabItem>
 
@@ -219,13 +240,17 @@
                     Click="OnCloseClicked"
                     Content="{x:Static properties:Resources.ButtonClose}" />
             <TextBlock Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Name="PaginationLabel" />
-            <Button Grid.Column="2" Style="{StaticResource ButtonStyle}" Content="&#xe76b;"
-                    Click="OnPreviousPageClicked" Margin="0, 0, 3, 0"
+            <Button Grid.Column="2"
+                    Style="{StaticResource ButtonStyle}" Content="&#xe76b;"
                     FontFamily="Segoe Fluent Icons, Segoe MDL2 Assets"
+                    Click="OnPreviousPageClicked" Margin="0, 0, 3, 0"
                     Name="PreviousButton" />
-            <Button Grid.Column="3" Style="{StaticResource ButtonStyle}" Content="&#xe76c;" Click="OnNextPageClicked"
+            <Button Grid.Column="3"
                     Margin="3, 0, 0, 0"
-                    FontFamily="Segoe Fluent Icons, Segoe MDL2 Assets" Name="NextButton" />
+                    Style="{StaticResource ButtonStyle}" Content="&#xe76c;"
+                    FontFamily="Segoe Fluent Icons, Segoe MDL2 Assets"
+                    Click="OnNextPageClicked"
+                    Name="NextButton" />
         </Grid>
     </Grid>
 

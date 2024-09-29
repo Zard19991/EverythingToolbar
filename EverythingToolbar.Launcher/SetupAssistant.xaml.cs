@@ -3,7 +3,9 @@ using System.IO;
 using System.Windows;
 using System.Windows.Forms;
 using System.Windows.Media.Imaging;
-using EverythingToolbar.Properties;
+using EverythingToolbar.Helpers;
+using NLog;
+using FlowDirection = System.Windows.FlowDirection;
 using MessageBox = System.Windows.MessageBox;
 using RadioButton = System.Windows.Controls.RadioButton;
 
@@ -17,6 +19,7 @@ namespace EverythingToolbar.Launcher
         private int _unlockedPages = 1;
         private bool _iconHasChanged;
         private FileSystemWatcher _watcher;
+        private static readonly ILogger Logger = ToolbarLogger.GetLogger<SetupAssistant>();
 
         public SetupAssistant(NotifyIcon icon)
         {
@@ -26,7 +29,9 @@ namespace EverythingToolbar.Launcher
 
             AutostartCheckBox.IsChecked = Utils.GetAutostartState();
             HideWindowsSearchCheckBox.IsChecked = !Utils.GetWindowsSearchEnabledState();
-            CreateFileWatcher();
+            TrayIconCheckBox.IsChecked = ToolbarSettings.User.IsTrayIconEnabled;
+
+            CreateFileWatcher(_taskbarShortcutPath);
             
             if (File.Exists(_taskbarShortcutPath))
             {
@@ -41,21 +46,41 @@ namespace EverythingToolbar.Launcher
         {
             _icon.Visible = false;
 
+            UpdatePaginationToFlowDirection();
+
             foreach (RadioButton radio in IconRadioButtons.Children)
             {
-                if ((string)radio.Tag == Settings.Default.iconName)
+                if ((string)radio.Tag == ToolbarSettings.User.IconName)
                     radio.IsChecked = true;
             }
 
             _iconHasChanged = false;
+            
+            // Bring to front
+            Topmost = true;
+            Topmost = false;
         }
 
-        private void CreateFileWatcher()
+        private void CreateFileWatcher(string taskbarShortcutPath)
         {
+            var pinnedIconsDir = Path.GetDirectoryName(taskbarShortcutPath);
+            var pinnedIconName = Path.GetFileName(taskbarShortcutPath);
+
+            try
+            {
+                // The directory might not exist on some systems (#523)
+                Directory.CreateDirectory(pinnedIconsDir);
+            }
+            catch (UnauthorizedAccessException e)
+            {
+                Logger.Error(e, "Failed to create pinned taskbar icons directory.");
+                return;
+            }
+
             _watcher = new FileSystemWatcher
             {
-                Path = Path.GetDirectoryName(_taskbarShortcutPath),
-                Filter = Path.GetFileName(_taskbarShortcutPath),
+                Path = pinnedIconsDir,
+                Filter = pinnedIconName,
                 NotifyFilter = NotifyFilters.FileName,
                 EnableRaisingEvents = true
             };
@@ -84,6 +109,31 @@ namespace EverythingToolbar.Launcher
             Utils.SetAutostartState(AutostartCheckBox.IsChecked != null && (bool)AutostartCheckBox.IsChecked);
         }
 
+        private void TrayIconChanged(object sender, RoutedEventArgs e)
+        {
+            ToolbarSettings.User.IsTrayIconEnabled = TrayIconCheckBox.IsChecked != null && (bool)TrayIconCheckBox.IsChecked;
+        }
+
+        private void OnClosing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (_unlockedPages == TotalPages)
+                return;
+
+            var disableSetupAssistant = MessageBox.Show(
+                Properties.Resources.SetupAssistantDisableWarningText,
+                Properties.Resources.SetupAssistantDisableWarningTitle,
+                MessageBoxButton.YesNo,
+                MessageBoxImage.Exclamation
+            ) == MessageBoxResult.Yes;
+            if (disableSetupAssistant)
+            {
+                ToolbarSettings.User.IsSetupAssistantDisabled = disableSetupAssistant;
+                // Ensuring the user can access the setup assistant
+                ToolbarSettings.User.IsTrayIconEnabled = disableSetupAssistant;
+            }
+            e.Cancel = !disableSetupAssistant;
+        }
+
         private void OnCloseClicked(object sender, RoutedEventArgs e)
         {
             Close();
@@ -91,7 +141,7 @@ namespace EverythingToolbar.Launcher
 
         private void OnClosed(object sender, EventArgs e)
         {
-            _icon.Visible = true;
+            _icon.Visible = ToolbarSettings.User.IsTrayIconEnabled;
 
             if (_watcher != null)
             {
@@ -106,14 +156,14 @@ namespace EverythingToolbar.Launcher
                     Properties.Resources.SetupAssistantRestartExplorerDialogTitle, MessageBoxButton.YesNo) ==
                 MessageBoxResult.Yes)
             {
-                Utils.ChangeTaskbarPinIcon(Settings.Default.iconName);
+                Utils.ChangeTaskbarPinIcon(ToolbarSettings.User.IconName);
             }
         }
 
         private void OnIconRadioButtonChecked(object sender, RoutedEventArgs e)
         {
-            Settings.Default.iconName = ((RadioButton)sender).Tag as string;
-            Icon = new BitmapImage(new Uri("pack://application:,,,/" + Settings.Default.iconName));
+            ToolbarSettings.User.IconName = ((RadioButton)sender).Tag as string;
+            Icon = new BitmapImage(new Uri("pack://application:,,,/" + ToolbarSettings.User.IconName));
             _iconHasChanged = true;
 
             _unlockedPages = Math.Max(2, _unlockedPages);
@@ -131,6 +181,14 @@ namespace EverythingToolbar.Launcher
             PreviousButton.IsEnabled = PaginationTabControl.SelectedIndex > 0;
             NextButton.IsEnabled = PaginationTabControl.SelectedIndex < _unlockedPages - 1;
             PaginationLabel.Text = $"{PaginationTabControl.SelectedIndex + 1} / {TotalPages}";
+        }
+
+        private void UpdatePaginationToFlowDirection()
+        {
+            if (FlowDirection == FlowDirection.RightToLeft)
+            {
+                (NextButton.Content, PreviousButton.Content) = (PreviousButton.Content, NextButton.Content);
+            }
         }
 
         private void OnNextPageClicked(object sender, RoutedEventArgs e)

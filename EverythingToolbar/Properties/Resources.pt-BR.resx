@@ -310,7 +310,7 @@
     <value>Ocultar buscas sem resultados</value>
   </data>
   <data name="SettingsMatchCase" xml:space="preserve">
-    <value>Diferenciar Maiúsculas</value>
+    <value>Diferenciar maiúsculas de minúsculas</value>
   </data>
   <data name="SettingsMatchPath" xml:space="preserve">
     <value>Corresponder Caminho</value>
@@ -366,83 +366,44 @@
   <data name="ShortcutWindowTitle" xml:space="preserve">
     <value>Inserir atalho...</value>
   </data>
-  <data name="SortByAttributesAscending" xml:space="preserve">
-    <value>Atributos em ordem crescente</value>
+  <data name="SortByAttributes" xml:space="preserve">
+    <value>Atributos</value>
   </data>
-  <data name="SortByAttributesDescending" xml:space="preserve">
-    <value>Atributos em ordem decrescente</value>
+  <data name="SortByDateAccessed" xml:space="preserve">
+    <value>Data de acesso</value>
   </data>
-  <data name="SortByDateAccessedAscending" xml:space="preserve">
-    <value>Data de acesso em ordem crescente</value>
+  <data name="SortByDateCreated" xml:space="preserve">
+    <value>Data de criação</value>
   </data>
-  <data name="SortByDateAccessedDescending" xml:space="preserve">
-    <value>Data de acesso em ordem decrescente</value>
+  <data name="SortByDateModified" xml:space="preserve">
+    <value>Data de modificação</value>
   </data>
-  <data name="SortByDateCreatedAscending" xml:space="preserve">
-    <value>Data de criação em ordem crescente</value>
+  <data name="SortByDateRecentlyChanged" xml:space="preserve">
+    <value>Data de alteração recente</value>
   </data>
-  <data name="SortByDateCreatedDescending" xml:space="preserve">
-    <value>Data de criação em ordem decrescente</value>
+  <data name="SortByDateRun" xml:space="preserve">
+    <value>Data de execução</value>
   </data>
-  <data name="SortByDateModifiedAscending" xml:space="preserve">
-    <value>Data de modificação em ordem crescente</value>
+  <data name="SortByExtension" xml:space="preserve">
+    <value>Extensão</value>
   </data>
-  <data name="SortByDateModifiedDescending" xml:space="preserve">
-    <value>Data de modificação em ordem decrescente</value>
+  <data name="SortByFileListFilename" xml:space="preserve">
+    <value>Nome do arquivo da lista de arquivos</value>
   </data>
-  <data name="SortByDateRecentlyChangedAscending" xml:space="preserve">
-    <value>Data alterada recentemente em ordem crescente</value>
+  <data name="SortByName" xml:space="preserve">
+    <value>Nome</value>
   </data>
-  <data name="SortByDateRecentlyChangedDescending" xml:space="preserve">
-    <value>Data alterada recentemente em ordem decrescente</value>
+  <data name="SortByPath" xml:space="preserve">
+    <value>Caminho</value>
   </data>
-  <data name="SortByDateRunAscending" xml:space="preserve">
-    <value>Data de execução em ordem crescente</value>
+  <data name="SortByRunCount" xml:space="preserve">
+    <value>Contagem de execuções</value>
   </data>
-  <data name="SortByDateRunDescending" xml:space="preserve">
-    <value>Data de execução em ordem decrescente</value>
+  <data name="SortBySize" xml:space="preserve">
+    <value>Tamanho</value>
   </data>
-  <data name="SortByExtensionAscending" xml:space="preserve">
-    <value>Extensão em ordem crescente</value>
-  </data>
-  <data name="SortByExtensionDescending" xml:space="preserve">
-    <value>Extensão em ordem decrescente</value>
-  </data>
-  <data name="SortByFileListFilenameAscending" xml:space="preserve">
-    <value>Lista de arquivos em ordem crescente</value>
-  </data>
-  <data name="SortByFileListFilenameDescending" xml:space="preserve">
-    <value>Lista de arquivos em ordem decrescente</value>
-  </data>
-  <data name="SortByNameAscending" xml:space="preserve">
-    <value>Nome em ordem crescente</value>
-  </data>
-  <data name="SortByNameDescending" xml:space="preserve">
-    <value>Nome em ordem decrescente</value>
-  </data>
-  <data name="SortByPathAscending" xml:space="preserve">
-    <value>Caminho em ordem crescente</value>
-  </data>
-  <data name="SortByPathDescending" xml:space="preserve">
-    <value>Caminho em ordem decrescente</value>
-  </data>
-  <data name="SortByRunCountAscending" xml:space="preserve">
-    <value>Contagem de execuções em ordem crescente</value>
-  </data>
-  <data name="SortByRunCountDescending" xml:space="preserve">
-    <value>Contagem de execuções em ordem decrescente</value>
-  </data>
-  <data name="SortBySizeAscending" xml:space="preserve">
-    <value>Tamanho em ordem crescente</value>
-  </data>
-  <data name="SortBySizeDescending" xml:space="preserve">
-    <value>Tamanho em ordem decrescente</value>
-  </data>
-  <data name="SortByTypeNameAscending" xml:space="preserve">
-    <value>Tipo em ordem crescente</value>
-  </data>
-  <data name="SortByTypeNameDescending" xml:space="preserve">
-    <value>Tipo em ordem decrescente</value>
+  <data name="SortByTypeName" xml:space="preserve">
+    <value>Nome do tipo</value>
   </data>
   <data name="ThemeDark" xml:space="preserve">
     <value>Escuro</value>
@@ -475,7 +436,7 @@
     <value>Atualização Disponível:</value>
   </data>
   <data name="UpdateBannerSkip" xml:space="preserve">
-    <value>Pular</value>
+    <value>Ignorar</value>
   </data>
   <data name="UpdateBannerDownload" xml:space="preserve">
     <value>Baixar</value>
@@ -484,9 +445,18 @@
     <value>Procurar atualizações automaticamente</value>
   </data>
   <data name="SettingsSelectFirstResult" xml:space="preserve">
-    <value>Selecionar primeiro resultado</value>
+    <value>Selecionar o primeiro resultado</value>
   </data>
   <data name="SettingsDoubleClickToOpen" xml:space="preserve">
-    <value>Duplo clique para abrir</value>
+    <value>Clique duas vezes para abrir</value>
+  </data>
+  <data name="SortDescending" xml:space="preserve">
+    <value>Decrescente</value>
+  </data>
+  <data name="SortAscending" xml:space="preserve">
+    <value>Crescente</value>
+  </data>
+  <data name="SettingsSearchAsYouType" xml:space="preserve">
+    <value>Pesquisar enquanto digita</value>
   </data>
 </root>

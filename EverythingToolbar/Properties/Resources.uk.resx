@@ -366,83 +366,44 @@
   <data name="ShortcutWindowTitle" xml:space="preserve">
     <value>Введіть скорочування клавіш...</value>
   </data>
-  <data name="SortByAttributesAscending" xml:space="preserve">
-    <value>Атрибути за зростанням</value>
+  <data name="SortByAttributes" xml:space="preserve">
+    <value>Attributes</value>
   </data>
-  <data name="SortByAttributesDescending" xml:space="preserve">
-    <value>Атрибути за спаданням</value>
+  <data name="SortByDateAccessed" xml:space="preserve">
+    <value>Date accessed</value>
   </data>
-  <data name="SortByDateAccessedAscending" xml:space="preserve">
-    <value>Дата доступу за зростанням</value>
+  <data name="SortByDateCreated" xml:space="preserve">
+    <value>Date created</value>
   </data>
-  <data name="SortByDateAccessedDescending" xml:space="preserve">
-    <value>Дата доступу за спаданням</value>
+  <data name="SortByDateModified" xml:space="preserve">
+    <value>Date modified</value>
   </data>
-  <data name="SortByDateCreatedAscending" xml:space="preserve">
-    <value>Дата створення за зростанням</value>
+  <data name="SortByDateRecentlyChanged" xml:space="preserve">
+    <value>Date recently changed</value>
   </data>
-  <data name="SortByDateCreatedDescending" xml:space="preserve">
-    <value>Дата створення за спаданням</value>
+  <data name="SortByDateRun" xml:space="preserve">
+    <value>Date run</value>
   </data>
-  <data name="SortByDateModifiedAscending" xml:space="preserve">
-    <value>Дата зміни по зростанню</value>
+  <data name="SortByExtension" xml:space="preserve">
+    <value>Extension</value>
   </data>
-  <data name="SortByDateModifiedDescending" xml:space="preserve">
-    <value>Дата зміни за спаданням</value>
+  <data name="SortByFileListFilename" xml:space="preserve">
+    <value>File list filename</value>
   </data>
-  <data name="SortByDateRecentlyChangedAscending" xml:space="preserve">
-    <value>Дата недавньої зміни за зростанням</value>
+  <data name="SortByName" xml:space="preserve">
+    <value>Name</value>
   </data>
-  <data name="SortByDateRecentlyChangedDescending" xml:space="preserve">
-    <value>Дата недавньої зміни за спаданням</value>
+  <data name="SortByPath" xml:space="preserve">
+    <value>Path</value>
   </data>
-  <data name="SortByDateRunAscending" xml:space="preserve">
-    <value>Дата виконання за зростанням</value>
+  <data name="SortByRunCount" xml:space="preserve">
+    <value>Run count</value>
   </data>
-  <data name="SortByDateRunDescending" xml:space="preserve">
-    <value>Дата виконання за спаданням</value>
+  <data name="SortBySize" xml:space="preserve">
+    <value>Size</value>
   </data>
-  <data name="SortByExtensionAscending" xml:space="preserve">
-    <value>Розширення за зростанням</value>
-  </data>
-  <data name="SortByExtensionDescending" xml:space="preserve">
-    <value>Розширення за спаданням</value>
-  </data>
-  <data name="SortByFileListFilenameAscending" xml:space="preserve">
-    <value>Ім'я файлу-списку за зростанням</value>
-  </data>
-  <data name="SortByFileListFilenameDescending" xml:space="preserve">
-    <value>Ім'я файлу-списку за спаданням</value>
-  </data>
-  <data name="SortByNameAscending" xml:space="preserve">
-    <value>Назва за зростанням</value>
-  </data>
-  <data name="SortByNameDescending" xml:space="preserve">
-    <value>Ім'я за спаданням</value>
-  </data>
-  <data name="SortByPathAscending" xml:space="preserve">
-    <value>Шлях за зростанням</value>
-  </data>
-  <data name="SortByPathDescending" xml:space="preserve">
-    <value>Шлях за спаданням</value>
-  </data>
-  <data name="SortByRunCountAscending" xml:space="preserve">
-    <value>Кількість запусків по зростанню</value>
-  </data>
-  <data name="SortByRunCountDescending" xml:space="preserve">
-    <value>Кількість запусків по спаданню</value>
-  </data>
-  <data name="SortBySizeAscending" xml:space="preserve">
-    <value>Розмір по зростанню</value>
-  </data>
-  <data name="SortBySizeDescending" xml:space="preserve">
-    <value>Розмір за спаданням</value>
-  </data>
-  <data name="SortByTypeNameAscending" xml:space="preserve">
-    <value>Тип за зростанням</value>
-  </data>
-  <data name="SortByTypeNameDescending" xml:space="preserve">
-    <value>Тип за спаданням</value>
+  <data name="SortByTypeName" xml:space="preserve">
+    <value>Type name</value>
   </data>
   <data name="ThemeDark" xml:space="preserve">
     <value>Темна</value>
@@ -488,5 +449,14 @@
   </data>
   <data name="SettingsDoubleClickToOpen" xml:space="preserve">
     <value>Double-click to open</value>
+  </data>
+  <data name="SortDescending" xml:space="preserve">
+    <value>Descending</value>
+  </data>
+  <data name="SortAscending" xml:space="preserve">
+    <value>Ascending</value>
+  </data>
+  <data name="SettingsSearchAsYouType" xml:space="preserve">
+    <value>Search as you type</value>
   </data>
 </root>

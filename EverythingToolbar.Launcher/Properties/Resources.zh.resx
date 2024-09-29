@@ -133,16 +133,16 @@
     <value>執行設定助理...</value>
   </data>
   <data name="SetupAssistantSecondStepText" xml:space="preserve">
-    <value>將 EverythingToobar 釘選至工作列，右鍵點選圖示並選取「釘選到工作列」。</value>
+    <value>要將 EverythingToobar 釘選至工作列，請在圖示上點擊右鍵並選擇「釘選到工作列」。</value>
   </data>
   <data name="SetupAssistantSecondStepTitle" xml:space="preserve">
     <value>2. 釘選到工作列</value>
   </data>
   <data name="SetupAssistantRestartExplorerDialogText" xml:space="preserve">
-    <value>更新工作列圖示需要重新啟動檔案總管，您想要立即重新啟動嗎？</value>
+    <value>更新工作列圖示需要重啟檔案總管，您想要立即重新啟動嗎？</value>
   </data>
   <data name="SetupAssistantRestartExplorerDialogTitle" xml:space="preserve">
-    <value>重新啟動檔案總管</value>
+    <value>重啟檔案總管</value>
   </data>
   <data name="SetupAssistantThirdStepText" xml:space="preserve">
     <value>另外，原本的 Windows 搜尋圖示可以被隱藏。</value>
@@ -164,5 +164,17 @@
   </data>
   <data name="SetupAssistantFirstStepTitle" xml:space="preserve">
     <value>1. 工作列圖示</value>
+  </data>
+  <data name="SetupAssistantFifthStepText" xml:space="preserve">
+    <value>By enabling the system tray icon you can quit the EverythingToolbar background process at any time. Without it, EverythingToolbar can always be quit via the task manager.</value>
+  </data>
+  <data name="SetupAssistantFifthStepTitle" xml:space="preserve">
+    <value>5. Configure system tray icon</value>
+  </data>
+  <data name="SetupAssistantDisableWarningText" xml:space="preserve">
+    <value>Are you sure you want to exit the setup assistant? EverythingToolbar will only be accessible using the keyboard shortcut. You can access the setup assistant again via the system tray icon to pin the search icon to the taskbar.</value>
+  </data>
+  <data name="SetupAssistantDisableWarningTitle" xml:space="preserve">
+    <value>Exit Setup Assistant</value>
   </data>
 </root>

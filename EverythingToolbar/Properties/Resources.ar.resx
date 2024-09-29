@@ -366,83 +366,44 @@
   <data name="ShortcutWindowTitle" xml:space="preserve">
     <value>أدخل الاختصار...</value>
   </data>
-  <data name="SortByAttributesAscending" xml:space="preserve">
-    <value>خصائص تصاعدية</value>
+  <data name="SortByAttributes" xml:space="preserve">
+    <value>Attributes</value>
   </data>
-  <data name="SortByAttributesDescending" xml:space="preserve">
-    <value>الخصائص تنازلية</value>
+  <data name="SortByDateAccessed" xml:space="preserve">
+    <value>Date accessed</value>
   </data>
-  <data name="SortByDateAccessedAscending" xml:space="preserve">
-    <value>تاريخ الدخول تصاعديا</value>
+  <data name="SortByDateCreated" xml:space="preserve">
+    <value>Date created</value>
   </data>
-  <data name="SortByDateAccessedDescending" xml:space="preserve">
-    <value>تاريخ الدخول تنازليا</value>
+  <data name="SortByDateModified" xml:space="preserve">
+    <value>Date modified</value>
   </data>
-  <data name="SortByDateCreatedAscending" xml:space="preserve">
-    <value>تاريخ الإنشاء تصاعديا</value>
+  <data name="SortByDateRecentlyChanged" xml:space="preserve">
+    <value>Date recently changed</value>
   </data>
-  <data name="SortByDateCreatedDescending" xml:space="preserve">
-    <value>تاريخ الإنشاء تنازليا</value>
+  <data name="SortByDateRun" xml:space="preserve">
+    <value>Date run</value>
   </data>
-  <data name="SortByDateModifiedAscending" xml:space="preserve">
-    <value>تاريخ التعديل تصاعديا</value>
+  <data name="SortByExtension" xml:space="preserve">
+    <value>Extension</value>
   </data>
-  <data name="SortByDateModifiedDescending" xml:space="preserve">
-    <value>تاريخ التعديل تنازليا</value>
+  <data name="SortByFileListFilename" xml:space="preserve">
+    <value>File list filename</value>
   </data>
-  <data name="SortByDateRecentlyChangedAscending" xml:space="preserve">
-    <value>تم تغييره حديثًا تصاعديًا</value>
+  <data name="SortByName" xml:space="preserve">
+    <value>Name</value>
   </data>
-  <data name="SortByDateRecentlyChangedDescending" xml:space="preserve">
-    <value>تم تغييره حديثًا تنازليًا</value>
+  <data name="SortByPath" xml:space="preserve">
+    <value>Path</value>
   </data>
-  <data name="SortByDateRunAscending" xml:space="preserve">
-    <value>تاريخ التشغيل تصاعديًا</value>
+  <data name="SortByRunCount" xml:space="preserve">
+    <value>Run count</value>
   </data>
-  <data name="SortByDateRunDescending" xml:space="preserve">
-    <value>تاريخ التشغيل - تنازليًا</value>
+  <data name="SortBySize" xml:space="preserve">
+    <value>Size</value>
   </data>
-  <data name="SortByExtensionAscending" xml:space="preserve">
-    <value>امتداد الملف - تصاعديًا</value>
-  </data>
-  <data name="SortByExtensionDescending" xml:space="preserve">
-    <value>ملحقات تنازليًا</value>
-  </data>
-  <data name="SortByFileListFilenameAscending" xml:space="preserve">
-    <value>"اسم ملف" قائمة الملف تصاعديًا</value>
-  </data>
-  <data name="SortByFileListFilenameDescending" xml:space="preserve">
-    <value>اسم "قائمة الملفات" - تنازليًا</value>
-  </data>
-  <data name="SortByNameAscending" xml:space="preserve">
-    <value>الاسم تصاعديًا</value>
-  </data>
-  <data name="SortByNameDescending" xml:space="preserve">
-    <value>الاسم تنازليًا</value>
-  </data>
-  <data name="SortByPathAscending" xml:space="preserve">
-    <value>المسار تصاعديًا</value>
-  </data>
-  <data name="SortByPathDescending" xml:space="preserve">
-    <value>المسار تنازليًا</value>
-  </data>
-  <data name="SortByRunCountAscending" xml:space="preserve">
-    <value>عدد مرات التشغيل تصاعديًا</value>
-  </data>
-  <data name="SortByRunCountDescending" xml:space="preserve">
-    <value>عدد مرات التشغيل تنازليًا</value>
-  </data>
-  <data name="SortBySizeAscending" xml:space="preserve">
-    <value>الحجم تصاعديًا</value>
-  </data>
-  <data name="SortBySizeDescending" xml:space="preserve">
-    <value>الحجم تنازليًا</value>
-  </data>
-  <data name="SortByTypeNameAscending" xml:space="preserve">
-    <value>أسم النوع الملف تصاعديًا</value>
-  </data>
-  <data name="SortByTypeNameDescending" xml:space="preserve">
-    <value>أسم النوع الملف تنازليًا</value>
+  <data name="SortByTypeName" xml:space="preserve">
+    <value>Type name</value>
   </data>
   <data name="ThemeDark" xml:space="preserve">
     <value>مظلم</value>
@@ -488,5 +449,14 @@
   </data>
   <data name="SettingsDoubleClickToOpen" xml:space="preserve">
     <value>النقر المزدوج للفتح</value>
+  </data>
+  <data name="SortDescending" xml:space="preserve">
+    <value>Descending</value>
+  </data>
+  <data name="SortAscending" xml:space="preserve">
+    <value>Ascending</value>
+  </data>
+  <data name="SettingsSearchAsYouType" xml:space="preserve">
+    <value>Search as you type</value>
   </data>
 </root>
